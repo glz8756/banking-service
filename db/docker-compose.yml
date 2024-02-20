@@ -1,0 +1,15 @@
+version: '3.1'
+name: banking
+
+services:
+  bankservice:
+    image: postgres
+    container_name: banking
+    restart: always
+    volumes:
+      - "./sql:/docker-entrypoint-initdb.d"
+    environment:
+      - "POSTGRES_USER=docker"
+      - "POSTGRES_PASSWORD=docker"
+    ports:
+      - "5432:5432"
